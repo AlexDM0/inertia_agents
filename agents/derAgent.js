@@ -18,9 +18,10 @@ function derAgent(id, AIMid, searchSpace) {
         me.AIMmodule.WriteCost(JSON.stringify(reply));
       }).done();;
   };
-  obj.RegReadCandidate(candidateCallBack);
 
-  this.AIMmodule = new nodeModule.SimulatedAnnealingModule(AIMid); // 0 is the ID of the aim module, should be a positive integer
+  this.AIMmodule = new nodeModule.SimulatedAnnealingModule(AIMid +''); // 0 is the ID of the aim module, should be a positive integer
+  this.AIMmodule.RegReadCandidate(candidateCallBack);
+
   this.AIMmodule.WriteSearchspace(JSON.stringify(searchSpace)); // Initialize the search space
 }
 

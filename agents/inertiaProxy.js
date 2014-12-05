@@ -1,5 +1,5 @@
 var eve = require('evejs');
-var derAgent = require('./agents/derAgent');
+var derAgent = require('./derAgent');
 
 function InertiaProxy(id, derAgents) {
   // execute super constructor

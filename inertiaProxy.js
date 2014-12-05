@@ -11,7 +11,7 @@ eve.system.init({
     {
       type: 'http',
       port: 3000,
-      url: 'http://10.10.1.100:3000/agents/:id',
+      url: 'http://10.10.1.134:3000/agents/:id',
       localShortcut: false
     }
   ]
