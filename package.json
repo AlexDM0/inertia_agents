@@ -2,6 +2,7 @@
   "name": "application-name",
   "version": "0.0.1",
   "dependencies": {
-    "evejs": "^0.4.3"
+    "evejs": "^0.4.3",
+    "promise": "^6.0.1"
   }
 }

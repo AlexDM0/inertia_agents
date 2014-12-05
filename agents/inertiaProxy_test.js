@@ -1,6 +1,4 @@
 var eve = require('evejs');
-var derAgent = require('./derAgent');
-var Promise = require('promise');
 
 function InertiaProxy(id, derAgents) {
   // execute super constructor
@@ -24,23 +22,21 @@ InertiaProxy.prototype.constructor = InertiaProxy;
 // exposed functions from local functions.
 InertiaProxy.prototype.rpcFunctions = {};
 
-InertiaProxy.prototype.rpcFunctions.minimize = function(params,sender) {
-  if (this.derAgents[params.derRef] === undefined) {
-    this.derAgents[params.derRef] = new derAgent(params.derRef, this.AIMid, params);
-    this.AIMid += 1;
-  }
-  this.INERTIA_URL = sender;
-};
 
 InertiaProxy.prototype.rpcFunctions.getError = function(params,sender) {
-  var me = this;
-  return new Promise(function (resolve, reject) {
-    me.rpc.request(me.INERTIA_URL, {method:'getError',params:params.msg})
-      .then(function (reply) {
-        resolve(reply);
-      })
-      .catch(function (error) {reject(error);})
-  });
+  console.log("got error request")
+  return "hello Bart"
 };
+
+InertiaProxy.prototype.test = function() {
+  this.rpc.request("http://10.10.1.134:3000/agents/inertiaProxy", {method:'minimize', params:{"derRef" : "HVAC_01",
+    "derAttribute" : [ {
+      "range" : [ ],
+      "name" : "attr01",
+      "type" : "RATIO",
+      "min" : 1.5,
+      "max" : 4.01004
+    } ]}}).done()
+}
 
 module.exports = InertiaProxy;

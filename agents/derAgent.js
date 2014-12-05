@@ -1,5 +1,5 @@
 var eve = require('evejs');
-var nodeModule = require('./build/Release/SimulatedAnnealingModule');
+var nodeModule = require('./SimulatedAnnealingModule');
 
 function derAgent(id, AIMid, searchSpace) {
   // execute super constructor

@@ -1,5 +1,5 @@
 var eve = require('evejs');
-var InertiaProxy = require('./agents/inertiaProxy');
+var InertiaProxy = require('./agents/inertiaProxy_test');
 
 // configure eve
 eve.system.init({
@@ -11,7 +11,7 @@ eve.system.init({
     {
       type: 'http',
       port: 3000,
-      url: 'http://10.10.1.134:3000/agents/:id',
+      url: 'http://10.10.1.110:3000/agents/:id',
       localShortcut: false
     }
   ]
@@ -20,7 +20,7 @@ eve.system.init({
 var derAgents = {};
 
 // create an agent
-var inertiaProxyAgent = new InertiaProxy('inertiaProxy',derAgents);
+var inertiaProxyAgent = new InertiaProxy('myProxy',derAgents);
 console.log("Created Agent 'inertiaProxy'.");
 
-
+inertiaProxyAgent.test();
